@@ -12,6 +12,4 @@ const StyledHero = styled.header`
 
 
 
-export default StyledHero;
-
-
+export default StyledHero

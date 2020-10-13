@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import {Link} from 'react-router-dom';
 import {RoomContext} from '../context';
 import StyledHero from '../components/StyledHero'
+import CreateOrder from '../components/CreateOrder.js'
 
 
 export default class SingleRoom extends Component {
@@ -11,11 +12,19 @@ export default class SingleRoom extends Component {
         super(props)
         //console.log(this.props)
        this.state = {
-           slug:this.props.match.params.slug,
-           defaultBcg
+        createOrder: false,
+        slug:this.props.match.params.slug,
+        defaultBcg
        }
     }
     static contextType = RoomContext
+    incrementCount(state){
+      this.setState((state) => {
+        // Важно: используем `state` вместо `this.state` при обновлении.
+        console.log(state);
+        return {createOrder: !state.createOrder}  
+      });
+    }
     //componentDidMount(){}
     render() {
         const { getRoom } = this.context;
@@ -30,8 +39,7 @@ export default class SingleRoom extends Component {
               </Link>
             </div>
           )
-        }
-    
+        }        
          const {name,description,capacity,size,price,extras,breakfast,pets,images} = room
          const [mainImg,...defaultImg] = images;
         
@@ -65,6 +73,8 @@ export default class SingleRoom extends Component {
               </h6>
               <h6>{pets ? "pets allowed" : "no pets allowed"}</h6>
               <h6>{breakfast && "free breakfast included"}</h6>
+              <button className="btn-primary" onClick={()=>this.incrementCount(this.state)}>Order</button>  
+              <CreateOrder data={room}/>         
              </article>
              </div>
          </section>
@@ -76,6 +86,7 @@ export default class SingleRoom extends Component {
                  })}
             </ul>
          </section>
+         {this.state.createOrder ? (<CreateOrder data={room}/>):(<></>)}
         </>
         )
     } 

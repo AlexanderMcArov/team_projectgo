@@ -18,7 +18,7 @@ export default class RoomProvider extends Component {
     breakfast:false,
     pets:false
     }
-    componentDidMount(){
+    componentWillMount(){
         let rooms = this.formatData(items)
         let featuredRooms = rooms.filter(room =>room.featured===true);
         let maxPrice = Math.max(...rooms.map(item =>
@@ -44,6 +44,7 @@ export default class RoomProvider extends Component {
     }
 
     getRoom = (slug) =>{
+        console.log('STATE',this.state.rooms);
         let tempRooms = [...this.state.rooms]
         const room = tempRooms.find((room)=>room.slug === slug);
         return room 
