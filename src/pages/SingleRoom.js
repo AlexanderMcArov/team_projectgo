@@ -12,7 +12,6 @@ export default class SingleRoom extends Component {
         super(props)
         //console.log(this.props)
        this.state = {
-        createOrder: false,
         slug:this.props.match.params.slug,
         defaultBcg
        }
@@ -72,8 +71,7 @@ export default class SingleRoom extends Component {
                 {capacity > 1 ? `${capacity} people` : `${capacity} person`}
               </h6>
               <h6>{pets ? "pets allowed" : "no pets allowed"}</h6>
-              <h6>{breakfast && "free breakfast included"}</h6>
-              <button className="btn-primary" onClick={()=>this.incrementCount(this.state)}>Order</button>  
+              <h6>{breakfast && "free breakfast included"}</h6> 
               <CreateOrder data={room}/>         
              </article>
              </div>
@@ -86,7 +84,6 @@ export default class SingleRoom extends Component {
                  })}
             </ul>
          </section>
-         {this.state.createOrder ? (<CreateOrder data={room}/>):(<></>)}
         </>
         )
     } 
