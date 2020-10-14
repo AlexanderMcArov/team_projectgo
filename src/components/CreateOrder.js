@@ -1,22 +1,79 @@
-// import React from 'react'
+import React, {useState} from 'react';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-// function CreateOrder(props) {
-//     console.log(props.data);
-//     let data = props.data
-//     return (
-//         <div className="order__body">
-//             <div className="order__form">
-//             Name: {data.name}<br></br>
-//             Price : {data.price}<br></br>
-//             Pets : { data.pets ? <> МОжно </> : <> Нельзя </>}<br></br>
-//             Breakfast : { data.breakfast ? <> С питанием </> : <> Без питания </>}<br></br>
-//             capacity : { data.capacity }<br></br>
-//             </div>            
-//         </div>
-//     )
-// }
+function CreateOrder(props) {
 
-// export default CreateOrder
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
+  }));
+  const classes = useStyles();
+  const [checked, setChecked] = React.useState(false);
+
+  const toggleChecked = () => {
+    setChecked((prev) => !prev);
+  };
+
+  console.log(props.data);
+  let data = props.data
+  let [isOpen, setOpen] = useState(false)
+  return (
+    <div>
+      <button className="btn-primary" onClick={() => setOpen(true)}>Order</button>
+      {isOpen ? <div className="order__body">
+        <div className="order__form">
+          <div className="order__title">
+            Введите свои данные
+          </div>
+          <div>
+            <form className={classes.root} noValidate autoComplete="off">
+              <div>
+                <div className="row">
+                <TextField
+                  // required
+                  id="outlined-required"
+                  label="Введите имя"
+                  variant="outlined"
+                />
+                <TextField
+                  // required
+                  id="outlined-disabled"
+                  label="Введите фамилию"
+                  defaultValue=""
+                  variant="outlined"
+                />
+                </div>
+                <div className="row">
+                <TextField
+                  required
+                  id="outlined-required"
+                  label="Введите e-mail"
+                  defaultValue="Hello World"
+                  variant="outlined"
+                />                
+                </div>
+                Кто основной гость?<br></br>
+                <FormControlLabel
+                  control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
+                  label="Я"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> : ''}
+    </div>
+  )
+}
+
+export default CreateOrder
 
 
 // breakfast: true
@@ -33,73 +90,76 @@
 // slug: "family-deluxe"
 // type: "family"
 
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
+// import React, { useState } from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Modal from '@material-ui/core/Modal';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10;
+// }
 
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+// function getModalStyle() {
+//   const top = 50 + rand();
+//   const left = 50 + rand();
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
+//   return {
+//     top: `${top}%`,
+//     left: `${left}%`,
+//     transform: `translate(-${top}%, -${left}%)`,
+//   };
+// }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   paper: {
+//     position: 'absolute',
+//     width: 400,
+//     backgroundColor: theme.palette.background.paper,
+//     border: '2px solid #000',
+//     boxShadow: theme.shadows[5],
+//     padding: theme.spacing(2, 4, 3),
+//   },
+// }));
 
-export default function SimpleModal() {
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+// export default function SimpleModal(props) {
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+//   const [data,setData] = useState(props.data)
+//   console.log(data.namew);
+//   const classes = useStyles();
+//   // getModalStyle is not a pure function, we roll the style only on the first render
+//   const [modalStyle] = React.useState(getModalStyle);
+//   const [open, setOpen] = React.useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+//   const handleOpen = () => {
+//     setOpen(true);
+//   };
 
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <SimpleModal />
-    </div>
-  );
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
 
-  return (
-    <div>
-      <button type="button" className="btn-primary" onClick={handleOpen}>
-        Open Modal
-      </button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-    </div>
-  );
-}
+//   let body = (
+//     <div style={modalStyle} className={classes.paper}>
+//       <h2 id="simple-modal-title">{data.name}</h2>
+//       <p id="simple-modal-description">
+//         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+//       </p>
+//       <SimpleModal />
+//     </div>
+//   );
+
+//   return (
+//     <div>
+//       <button type="button" className="btn-primary" onClick={handleOpen}>
+//         To Book
+//       </button>
+//       <Modal
+//         open={open}
+//         onClose={handleClose}
+//         aria-labelledby="simple-modal-title"
+//         aria-describedby="simple-modal-description"
+//       >
+//         {body}
+//       </Modal>
+//     </div>
+//   );
+// }
