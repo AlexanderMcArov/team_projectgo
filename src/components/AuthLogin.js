@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { blue } from '@material-ui/core/colors';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
-function CreateOrder(props) {
+function AuthLogin(props) {
+
+  let data = props.data
+  let isOpen = true
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,72 +27,51 @@ function CreateOrder(props) {
     },
     btn_list: {
       display: 'flex',
-      justifyContent: 'flex-end',
+      justifyContent: 'center',
     }
 
   }));
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(false);
 
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
-
-  console.log(props.data);
-  let data = props.data
-  let [isOpen, setOpen] = useState(false)
   return (
-    <div onClick={(e)=>{
-      if(isOpen && e.target.className == 'order__body') setOpen(false)
-    }}>
-      <button className="btn-primary" onClick={() => setOpen(true)}>Order</button>
+    <div>
+      <button className="btn_login">
+        <VpnKeyIcon className="fa fa-plus-circle" style={{ color: blue[500] }} />
+      </button>
       {isOpen ? <div className="order__body">
         <div className="order__form">
           <div className="order__title">
-            {data.name}
           </div>
           <div>
             <form className={classes.root} noValidate autoComplete="off">
               <div>
-                <div className="row">
-                <TextField
-                  // required
-                  id="outlined-required"
-                  label="Введите имя"
-                  variant="outlined"
-                />
-                <TextField
-                  // required
-                  id="outlined-disabled"
-                  label="Введите фамилию"
-                  defaultValue=""
-                  variant="outlined"
-                />
+                <div className="col">
+                  <TextField
+                    // required
+                    id="outlined-required"
+                    label="Login"
+                    variant="outlined"
+                  />
+                  <TextField
+                    // required
+                    id="outlined-disabled"
+                    label="Password"
+                    defaultValue=""
+                    variant="outlined"
+                  />
+                  <TextField
+                    // required
+                    id="outlined-disabled"
+                    label="Repeat Password"
+                    defaultValue=""
+                    variant="outlined"
+                  />
                 </div>
-                <div>
-                <TextField
-                  id="outlined-required"
-                  label="Введите e-mail"
-                  variant="outlined"
-                />                
-                </div>
-                <div>
-                <TextField
-                  id="outlined-required"
-                  label="Введите телефон:"
-                  variant="outlined"
-                />                
-                </div>
-                You main guest?<br></br>
-                <FormControlLabel
-                  control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
-                  label="I'm"
-                /><br></br>
                 <div className={classes.btn_list}>
                   <Button variant="contained" className={classes.btn_ok}>
-                    SEND
+                    LOGIN
                   </Button>
-                  <Button variant="outlined" onClick={() => setOpen(false)} color="secondary">
+                  <Button variant="outlined" color="secondary">
                     CANCEL
                   </Button>
                 </div>
@@ -102,7 +84,7 @@ function CreateOrder(props) {
   )
 }
 
-export default CreateOrder
+export default AuthLogin
 
 
 // breakfast: true

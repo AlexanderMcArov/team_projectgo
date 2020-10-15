@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: row;
 }
+.col{
+  display: flex;
+  flex-direction: column;
+}
 .jcb{
   justify-content: space-between;
 }
@@ -97,6 +101,8 @@ h6 {
 /* end of globals */
 /* Navbar */
 .navbar {
+  display: flex;
+  justify-content: space-around;
   position: fixed;
   top: 0;
   left: 0;
@@ -142,6 +148,20 @@ h6 {
 
 .show-nav {
   height: 100px;
+}
+.nav__login{
+  
+}
+.btn_login{
+  border: 0px;
+  outline: none;
+  background: rgb(220, 220, 220);
+  padding: 10px;
+  border-radius: 10px;
+}
+.btn_login:hover{
+  background: rgb(210, 210, 210);
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .nav-btn {
