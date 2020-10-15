@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: row;
 }
+.col{
+  display: flex;
+  flex-direction: column;
+}
 .jcb{
   justify-content: space-between;
 }
@@ -142,6 +146,22 @@ h6 {
 
 .show-nav {
   height: 100px;
+}
+.nav__login{
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+.btn_login{
+  border: 0px;
+  outline: none;
+  background: rgb(220, 220, 220);
+  padding: 10px;
+  border-radius: 10px;
+}
+.btn_login:hover{
+  background: rgb(210, 210, 210);
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .nav-btn {
@@ -530,6 +550,12 @@ h6 {
 .order__title{
   margin: 10px;
   text-align: center;
+}
+.list__Left{
+  border-right: rgba(200, 200, 200,.6) 2px solid;
+}
+.list__Right{
+  padding: 20px 20px;  
 }
 @media screen and (min-width: 776px) {
   .filter-form {

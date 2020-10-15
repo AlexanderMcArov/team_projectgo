@@ -1,0 +1,2 @@
+export const FETCH_AUTH_LOGIN = 'FETCH_AUTH_LOGIN'
+

@@ -1,0 +1,61 @@
+{
+    "rooms": [
+        {
+            "id": 0,
+            "sys": {
+                "id": "1"
+            },
+            "fields": {
+                "name": "single economy",
+                "slug": "single-economy",
+                "type": "single",
+                "price": 100,
+                "size": 200,
+                "capacity": 1,
+                "pets": false,
+                "breakfast": false,
+                "featured": false,
+                "description": "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
+                "extras": [
+                    "Plush pillows and breathable bed linens",
+                    "Soft, oversized bath towels",
+                    "Full-sized, pH-balanced toiletries",
+                    "Complimentary refreshments",
+                    "Adequate safety/security",
+                    "Internet",
+                    "Comfortable beds"
+                ],
+                "images": [
+                    {
+                        "fields": {
+                            "file": {
+                                "url": "https://www.thespruce.com/thmb/ZM7NrTic_7kJPMuOtCs2mIvEq8k=/2032x1143/smart/filters:no_upscale()/GettyImages-1187200939-74336d2a866d4c99853f700cb4ad7d5f.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "file": {
+                                "url": "https://www.thespruce.com/thmb/ZM7NrTic_7kJPMuOtCs2mIvEq8k=/2032x1143/smart/filters:no_upscale()/GettyImages-1187200939-74336d2a866d4c99853f700cb4ad7d5f.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "file": {
+                                "url": "https://www.thespruce.com/thmb/ZM7NrTic_7kJPMuOtCs2mIvEq8k=/2032x1143/smart/filters:no_upscale()/GettyImages-1187200939-74336d2a866d4c99853f700cb4ad7d5f.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "file": {
+                                "url": "https://www.thespruce.com/thmb/ZM7NrTic_7kJPMuOtCs2mIvEq8k=/2032x1143/smart/filters:no_upscale()/GettyImages-1187200939-74336d2a866d4c99853f700cb4ad7d5f.jpg"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'; 
-import items from './data';
+import items from './data'
+
 const RoomContext = React.createContext();
 //RoomContext.Provider value = {}
-export default class RoomProvider extends Component {
+export default class RoomProvider extends Component {    
     state= {
     room: [],
     sortedRooms:[],
@@ -19,7 +20,8 @@ export default class RoomProvider extends Component {
     pets:false
     }
 
-    componentWillMount(){
+    componentWillMount(){    
+        console.log(items);
         let rooms = this.formatData(items)
         let featuredRooms = rooms.filter(room =>room.featured===true);
         let maxPrice = Math.max(...rooms.map(item =>

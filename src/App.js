@@ -6,6 +6,7 @@ import React from 'react';
  import SingleRoom from './pages/SingleRoom';
  import Error from './pages/Error';
  import Navbar from './components/Navbar';
+ import AdminPanel from './components/AdminPanel';
  import {Route,Switch} from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Route exact path = "/" component ={Home}/>
     <Route exact path = "/rooms/" component ={Rooms}/>
     <Route exact path = "/rooms/:slug" component ={SingleRoom}/>
+    <Route exact path = "/admin/" component ={AdminPanel}/>
     <Route componet = {Error}/>
    </Switch>
     </>
