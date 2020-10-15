@@ -23,7 +23,7 @@ function CreateOrder(props) {
 
   console.log(props.data);
   let data = props.data
-  let [isOpen, setOpen] = useState(false)
+  let [isOpen, setOpen] = useState(true)
   return (
     <div>
       <button className="btn-primary" onClick={() => setOpen(true)}>Order</button>
@@ -35,6 +35,8 @@ function CreateOrder(props) {
           <div>
             <form className={classes.root} noValidate autoComplete="off">
               <div>
+                Room type: {data.name}<br></br>
+                Pets: {data.pets ? 'can' : 'cant'}
                 <div className="row">
                 <TextField
                   // required
@@ -46,7 +48,6 @@ function CreateOrder(props) {
                   // required
                   id="outlined-disabled"
                   label="Введите фамилию"
-                  defaultValue=""
                   variant="outlined"
                 />
                 </div>
@@ -55,7 +56,6 @@ function CreateOrder(props) {
                   required
                   id="outlined-required"
                   label="Введите e-mail"
-                  defaultValue="Hello World"
                   variant="outlined"
                 />                
                 </div>
