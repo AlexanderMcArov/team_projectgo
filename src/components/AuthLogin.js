@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { Redirect} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import {useDispatch} from 'react-redux'
+import {contactAddItem} from '../redux/actions/contactbook'
 
-function AuthLogin(props) {
+function AuthLogin() {
 
-  let data = props.data
+  const [redirect,setRedirect] = useState(false)
   const [isOpen,setOpen] = useState(false)
   const [login,setLogin] = useState('')
   const [password,setPassword] = useState('')
   const [repPassword,setRepPassword] = useState('')
+  const dispatch = useDispatch()
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +44,7 @@ function AuthLogin(props) {
     <div onClick={(e)=>{
       if(isOpen && e.target.className == 'order__body') setOpen(false)
     }}>
+      {redirect ? <Redirect to='/admin'/> : ''}
       <button className="btn_login" onClick={()=>setOpen(true)}>
         <VpnKeyIcon className="fa fa-plus-circle" style={{ color: blue[500] }} />
       </button>
@@ -80,7 +85,7 @@ function AuthLogin(props) {
                 </div>
                 <div className={classes.btn_list}>
                   <Button variant="contained" className={classes.btn_ok} onClick={()=>{
-                    console.log(login,password,repPassword);
+                    dispatch(contactAddItem({login,password}))
                   }}>
                     LOGIN
                   </Button>

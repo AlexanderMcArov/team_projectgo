@@ -101,8 +101,6 @@ h6 {
 /* end of globals */
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-around;
   position: fixed;
   top: 0;
   left: 0;
@@ -150,7 +148,9 @@ h6 {
   height: 100px;
 }
 .nav__login{
-  
+  position: fixed;
+  right: 20px;
+  top: 10px;
 }
 .btn_login{
   border: 0px;
