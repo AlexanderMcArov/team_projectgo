@@ -8,7 +8,10 @@ import VpnKeyIcon from '@material-ui/icons/VpnKey';
 function AuthLogin(props) {
 
   let data = props.data
-  let isOpen = true
+  const [isOpen,setOpen] = useState(false)
+  const [login,setLogin] = useState('')
+  const [password,setPassword] = useState('')
+  const [repPassword,setRepPassword] = useState('')
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,8 +37,10 @@ function AuthLogin(props) {
   const classes = useStyles();
 
   return (
-    <div>
-      <button className="btn_login">
+    <div onClick={(e)=>{
+      if(isOpen && e.target.className == 'order__body') setOpen(false)
+    }}>
+      <button className="btn_login" onClick={()=>setOpen(true)}>
         <VpnKeyIcon className="fa fa-plus-circle" style={{ color: blue[500] }} />
       </button>
       {isOpen ? <div className="order__body">
@@ -51,6 +56,8 @@ function AuthLogin(props) {
                     id="outlined-required"
                     label="Login"
                     variant="outlined"
+                    value={login}
+                    onChange={(e)=>setLogin(e.target.value)}
                   />
                   <TextField
                     // required
@@ -58,6 +65,8 @@ function AuthLogin(props) {
                     label="Password"
                     defaultValue=""
                     variant="outlined"
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                   <TextField
                     // required
@@ -65,13 +74,17 @@ function AuthLogin(props) {
                     label="Repeat Password"
                     defaultValue=""
                     variant="outlined"
+                    value={repPassword}
+                    onChange={(e)=>setRepPassword(e.target.value)}
                   />
                 </div>
                 <div className={classes.btn_list}>
-                  <Button variant="contained" className={classes.btn_ok}>
+                  <Button variant="contained" className={classes.btn_ok} onClick={()=>{
+                    console.log(login,password,repPassword);
+                  }}>
                     LOGIN
                   </Button>
-                  <Button variant="outlined" color="secondary">
+                  <Button variant="outlined" color="secondary" onClick={()=>setOpen(false)}>
                     CANCEL
                   </Button>
                 </div>

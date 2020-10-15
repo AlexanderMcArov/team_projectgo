@@ -35,9 +35,9 @@ function CreateOrder(props) {
     setChecked((prev) => !prev);
   };
 
-  console.log(props.data);
   let data = props.data
   let [isOpen, setOpen] = useState(false)
+  
   return (
     <div onClick={(e)=>{
       if(isOpen && e.target.className == 'order__body') setOpen(false)
