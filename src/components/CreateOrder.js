@@ -57,7 +57,7 @@ function CreateOrder(props) {
     Его контактные данные:
      E-mail: ${email}
      Номер: ${number}`
-    Axios.get(`https://api.telegram.org/bot1374639209:AAHf_y44kiesOR8jJIDyzOfq-Q1PBtj7wtE/sendMessage?text=${text}&chat_id=582300291`)
+    Axios.get(`https://api.telegram.org/bot1374639209:AAHf_y44kiesOR8jJIDyzOfq-Q1PBtj7wtE/sendMessage?text=${text}&chat_id=-368700723`)
       .then(res => {
         setName('')
         setSName('')
@@ -92,7 +92,7 @@ function CreateOrder(props) {
                   <TextField
                     // required
                     id="outlined-required"
-                    label="Введите имя"
+                    label="Input your name"
                     variant="outlined"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -100,7 +100,7 @@ function CreateOrder(props) {
                   <TextField
                     // required
                     id="outlined-disabled"
-                    label="Введите фамилию"
+                    label="Input your lastname"
                     variant="outlined"
                     value={sname}
                     onChange={(e) => setSName(e.target.value)}
@@ -109,7 +109,7 @@ function CreateOrder(props) {
                 <div>
                   <TextField
                     id="outlined-required"
-                    label="Введите e-mail"
+                    label="Input your e-mail"
                     variant="outlined"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -118,7 +118,7 @@ function CreateOrder(props) {
                 <div>
                   <TextField
                     id="outlined-required"
-                    label="Введите телефон:"
+                    label="Input your number"
                     variant="outlined"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
