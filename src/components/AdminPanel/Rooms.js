@@ -18,9 +18,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Rooms() {
+export default function Rooms(props) {
     const [spacing, setSpacing] = React.useState(2);
     const classes = useStyles();
+    console.log('CHF<FNSDFTN');
+    const [iList,setList] = useState(items)
+    const [update,setUpdate] = useState(true)
+
+
     // const [items, setItems] = useState([])
 
     // useEffect(() => {
@@ -40,9 +45,9 @@ export default function Rooms() {
             <Grid container className={classes.root} spacing={2}>
                 <Grid item xs={12}>
                     <Grid container justify="center" spacing={spacing}>
-                        {items.map((value) => (
+                        {iList.map((value,index) => (
                             <Grid key={value} item>
-                                <RoomCard data={value} />
+                                <RoomCard data={value} delete={setList} iLists={iList} id={index} setUpdate={setUpdate} update={update}/>
                             </Grid>
                         ))}
                     </Grid>

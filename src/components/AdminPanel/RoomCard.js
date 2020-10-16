@@ -37,6 +37,9 @@ const useStyles = makeStyles({
 export default function RoomCard(props) {
   const classes = useStyles();
   const data = props.data.fields
+  let lists = props.iLists
+  console.log(props);
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -66,7 +69,12 @@ export default function RoomCard(props) {
       <Button variant="contained" color="primary">
         Edit
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" onClick={()=>{
+          lists.splice(props.id,1)
+          props.delete(lists)
+          props.setUpdate(!props.update)
+          console.log(lists);
+        }}>
         Delete
         </Button>
       </CardActions>

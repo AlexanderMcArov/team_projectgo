@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import AdminRooms from './AdminPanel/Rooms'
 import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -23,11 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedList() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
     const [content,setContent] = useState(0)
-    const handleClick = () => {
-        setOpen(!open);
-    };
 
     let Contents = function(a){
         let res = ''
@@ -49,11 +44,6 @@ export default function NestedList() {
                 <List
                     component="nav"
                     aria-labelledby="nested-list-subheader"
-                    subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
-                            Admin Tools
-                        </ListSubheader>
-                    }
                     className={classes.root}
                 >
                     <ListItem button onClick={()=>setContent(1)}>

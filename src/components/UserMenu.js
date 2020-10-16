@@ -48,7 +48,7 @@ export default function UserMenu() {
     const history = useHistory();
 
     const routeChange = () => {
-        let path = `admin`;
+        let path = `/admin`;
         history.push(path);
     }
     const data = useSelector(state => {
